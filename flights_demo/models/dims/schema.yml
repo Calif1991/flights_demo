@@ -1,0 +1,55 @@
+
+version: 2
+
+models:
+  - name: dim_aircrafts
+    description: "aircrafts Information"
+    columns: 
+      - name: aircraft_code
+      - name: range
+      - name: model_english_name
+      - name: model_russian_name
+      - name: seat_no
+      - name: fare_conditions
+      - name: ranges_conditions
+        description: "case"
+        tests:
+          - unique
+          - not_null
+
+
+  - name: dim_airports
+    description: "airports Information"
+    columns: 
+      - name: aircraft_code
+      - name: coordinates
+      - name: time_zone
+      - name: english_airport_name
+      - name: russian_airport_name
+      - name: english_city_name
+      - name: russian_city_name
+      - name: dbt_time
+        tests:
+          - unique
+          - not_null
+
+
+
+
+          
+
+
+
+
+sources:
+  - name: flight_demo
+    database: flight_demo
+    schema: stg
+    tables:
+      - name: aircrafts_data
+      - name: seats
+      - name: airports_data
+
+
+
+    

@@ -1,0 +1,33 @@
+
+version: 2
+
+models:
+  - name: fact_tickets
+    description: "tickets Information"
+    columns: 
+      - name: book_date
+      - name: dbt_time
+      - name: total_amount
+      - name: book_ref
+      - name: ticket_no
+      - name: passenger_id
+      - name: passenger_name
+      - name: phone_number
+        description: "json extraction"
+      - name: email_address
+        description: "json extraction"
+        tests:
+          - unique
+          - not_null
+
+
+
+sources:
+  - name: flight_demo_fact
+    database: flight_demo
+    schema: stg
+    tables:
+      - name: bookings
+      - name: tickets
+
+ 
