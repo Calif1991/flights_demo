@@ -22,6 +22,39 @@ models:
 
 
 
+models:
+  - name: fact_boarding
+    description: "boarding and flight tickets Information"
+    columns: 
+      - name: fare_conditions
+      - name: amount
+      - name: ticket_no
+      - name: flight_id
+      - name: boarding_no
+      - name: seat_no
+        tests:
+          - unique
+          - not_null
+
+
+
+
+models:
+  - name: fact_flights
+    description: "flights Information"
+    columns: 
+      - name: fare_conditions
+      - name: amount
+      - name: ticket_no
+      - name: flight_id
+      - name: boarding_no
+      - name: seat_no
+        tests:
+          - unique
+          - not_null
+
+
+
 sources:
   - name: flight_demo_fact
     database: flight_demo
@@ -29,5 +62,8 @@ sources:
     tables:
       - name: bookings
       - name: tickets
+      - name: boarding_passes
+      - name: ticket_flights
+      - name: flights
 
  
