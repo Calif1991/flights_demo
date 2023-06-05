@@ -35,9 +35,9 @@ aggs_flights as
 	from flights
 )
 select 
+	 distinct aggs_flights.aircraft_code,
 	 flight_id,
 	 flight_no,
-	 aggs_flights.aircraft_code,
 	 departure_airport,
 	 scheduled_departure,
 	 actual_departure,
